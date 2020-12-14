@@ -1,0 +1,19 @@
+const Discord = require('discord.js');
+const { send } = require('process');
+
+
+module.exports = {
+    name: "embed1",
+    description: "embed1",
+
+    async run (client, message, args) {
+
+
+        const embed1 = new Discord.MessageEmbed()
+        .setColor('000000')
+        .setTitle('test')
+        .setDescription('test')
+        .setTimestamp()
+
+        message.channel.send(embed1);
+    }}
