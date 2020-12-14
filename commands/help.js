@@ -1,33 +1,36 @@
-const { run } = require("./reload");
-
 module.exports = {
-    name: 'help',
-    description: 'display help command',
-    cooldown: '5',
+    name: "help",
+    description: "help command",
 
     async run(client, message, args) {
 
-        const prefix = 'c!';
-        const data = [];
-        const { commands } = message.client;
-        const cmdlist = data.push(commands.map(command => command.name).join(' '));;
+        const member = message.mentions.members.first();
+        const wow = client.emojis.cache.find(emoji => emoji.name === "wow");
+        
 
-        if(!args.length) {
-            data.push(`aici ai o lista cu toate comenzile mele`);
-            data.push(commands.map(command => command.name).join(' '));
-
-            return message.author.send(data, { split: true })
-            .then(() => {
-                if(message.channel.type === 'dm') return;
-                message.reply('ti-am trimis un dm cu toate comenzile mele')
-            })
-
-            .catch(error => {
-                console.error('n-am putut trimite dm')
-                message.reply('nu am putut sa iti trimit mesaj, ai dm-urile disabled sau ma ai la block ;(')
-            });
-        }       
-    
-    
+        message.channel.send({ embed: {
+            color: "078883",
+            title: "help gigel.exe",
+            description: "aici ai comenzile mele",
+             fields: [{
+                name: "staffhelp",
+                value: `${wow} Aici ai comenzile pentru moderare, numai cei staff pot sa le foloseasca. ${wow}`
+                },
+                {
+                name: "funhelp",
+                value: "dai help fun si o sa vezi ca nu stiu ce sa zic"
+                },
+                {
+                name: "ownerhelp",
+                value: "comenzi facute doar pt ownerul botului @andrei#1588"
+                }
+            ],
+            timestamp: new Date(),
+            footer: {
+                icon_url: client.user.avatarURL(),
+                text: "© gigel.exe"
+            }}
+        })
     }}
+            
 
