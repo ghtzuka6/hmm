@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const config = require('./config.json');
-
+const ModelGuild = require('../models/Guild');
+const { connect } = require('mongoose');
 
 const client = new Discord.Client();
 
@@ -9,21 +10,13 @@ const { token } = require('./config.json');
 const { readdirSync } = require('fs');
 
 const { join } = require('path');
+const { connected } = require('process');
 
 client.commands = new Discord.Collection();
 
 const prefix = 'c!';
 //You can change the prefix if you like. It doesn't have to be ! or ;
 
-const Sequelize = require('sequelize');
-
-const sequelize = new Sequelize('database', 'user', 'password', {
-  host: "localhost",
-  dialect: "sqlite",
-  logging: "false",
-
-  storage: "database.sqlite",
-});
 
 
 const commandFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"));
@@ -102,9 +95,17 @@ client.on("message", message => {
 
       } catch (error) {
         console.error(error);
+
       }}
     })
 
     
+    (async () => {
+      await connect('mongodb://localhost/gigel.exe', {
+          useNewUrlParser: true,
+          useFindAndModify: false
+    });
+      
 
-  client.login(token);
+      return client.login(config.token)
+    })
