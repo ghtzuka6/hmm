@@ -4,18 +4,21 @@
   "description": "discord bot",
   "main": "index.js",
   "dependencies": {
+    "@discordjs/opus": "^0.3.3",
     "discord": "^0.8.2",
     "discord.js": "^12.5.1",
     "distube": "^2.8.7",
     "eslint": "^7.15.0",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.7",
+    "fluent-ffmpeg": "^2.1.2",
     "mongoose": "^5.11.8",
     "ms": "^2.1.2",
     "opusscript": "0.0.7",
     "redis": "^3.0.2",
     "sequelize": "^6.3.5",
-    "sqlite3": "^5.0.0"
+    "sqlite3": "^5.0.0",
+    "ytdl-core": "^4.2.1"
   },
   "devDependencies": {},
   "scripts": {
