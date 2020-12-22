@@ -7,11 +7,14 @@ module.exports = {
     async run(client, message, args) {
 
         const member = message.mentions.members.first();
+        if(!member) return message.channel.send('Nu ai mentionat userul careia vrei sa ii dai ban.')
+
         const guild = message.guild;
 
         if(!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send('nu ai permisiune sa banezi membri')
 
         if(message.member.hasPermission('BAN_MEMBERS'))
+
 
         members.ban(member)
 

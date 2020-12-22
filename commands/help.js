@@ -23,12 +23,16 @@ module.exports = {
                 {
                 name: "ownerhelp",
                 value: "comenzi facute doar pt ownerul botului @andrei#1588"
+                },
+                {
+                name: "musichelp",
+                value: "comenzi facute de muzica, momentan in lucru peleme"
                 }
             ],
             timestamp: new Date(),
             footer: {
                 icon_url: client.user.avatarURL(),
-                text: "© gigel.exe"
+                text: "[source code](https://github.com/yngandrew/gigel.exe) | [support server](https://discord.gg/NEqcXNHMg3) | [instagram](https://instagram.com/32andreww)"
             }}
         })
     }}

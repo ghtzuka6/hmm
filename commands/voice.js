@@ -20,6 +20,8 @@ module.exports = {
         if(message.member.hasPermission('ADMINISTRATOR')) 
             voiceChannel.join()
             .then(connection => {}).catch(err => console.log(err));
+            connection.voice.setSelfDeaf(true);
+
             const dispatcher = connection.play('song.mp3')
 
 

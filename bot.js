@@ -41,7 +41,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-  if(!message.contains === `${prefix}${commands}`) return message.channel.send("Acea comanda nu exista, pentru lista de comenzi ai ``c!help``")
+  if(!message.content.contains === `${prefix}${commands}`) return message.channel.send("Acea comanda nu exista, pentru lista de comenzi ai ``c!help``")
 })
 
 
@@ -77,7 +77,7 @@ client.on("message", message => {
     if (message.mentions.users.get(client.user.id)) {
       message.channel.send({
         embed: {
-          title: `salut, ${message.member},`,
+          title: `salut, ${message.author.username}`,
           description: `prefix-ul meu este **${prefix}**`,
         }
       })
@@ -142,7 +142,8 @@ client.on("message", message => {
           "I need the permissions to join and speak in your voice channel!"
         );
       }
-    
+      connection.voice.setSelfDeaf(true);
+
       const songInfo = await ytdl.getInfo(args[1]);
       const song = {
             title: songInfo.videoDetails.title,
