@@ -11,7 +11,7 @@ module.exports = {
         message.channel.send({ embed: {
             color: "078883",
             title: "help gigel.exe",
-            description: "aici ai comenzile mele",
+            description: "[source code](https://github.com/yngandrew/gigel.exe) | [support server](https://discord.gg/NEqcXNHMg3) | [instagram](https://instagram.com/32andreww)",
              fields: [{
                 name: "staffhelp",
                 value: `${wow} Aici ai comenzile pentru moderare, numai cei staff pot sa le foloseasca. ${wow}`
@@ -32,7 +32,7 @@ module.exports = {
             timestamp: new Date(),
             footer: {
                 icon_url: client.user.avatarURL(),
-                text: "[source code](https://github.com/yngandrew/gigel.exe) | [support server](https://discord.gg/NEqcXNHMg3) | [instagram](https://instagram.com/32andreww)"
+                text: "© gigel.exe"
             }}
         })
     }}
